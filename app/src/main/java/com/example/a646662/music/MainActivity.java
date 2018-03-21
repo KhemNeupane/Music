@@ -1,11 +1,18 @@
 package com.example.a646662.music;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,14 +44,30 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+
+
+    ListView listView;
+
+    List<String> list;
+
+    ListAdapter adapter;
+
+    MediaPlayer mediaPlayer;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onCreate(Bundle savedIntanceState) {
+        super.onCreate(savedIntanceState);
         setContentView(R.layout.activity_main);
 
-        mTextMessage = (TextView) findViewById(R.id.message);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-    }
+        listView =(ListView) findViewById(R.id.ListView);
 
-}
+        list = new ArrayList<>();
+        Field
+
+        adapter =new ArrayAdapter<>(this,android.R.layout.simple_list_item_1);
+
+
+    }
+        }
+
+

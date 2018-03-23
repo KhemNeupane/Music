@@ -6,11 +6,15 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.lang.reflect.Field;
+import java.text.Format;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,15 +63,36 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedIntanceState);
         setContentView(R.layout.activity_main);
 
-        listView =(ListView) findViewById(R.id.ListView);
+        listView = (ListView) findViewById(R.id.ListView);
 
         list = new ArrayList<>();
-        Field
 
-        adapter =new ArrayAdapter<>(this,android.R.layout.simple_list_item_1);
-
-
-    }
+        Field[] fields = R.raw.class.getFields();
+        for (int i = 0; i < fields.length; i++) {
+            list.add(fields{i}.getName());
         }
 
 
+        //remove first two elements
+        list.remove(0);
+        list.remove (0):
+
+        adapter =new ArrayAdapter<>(this,android.R.layout.simple_list_item_1);
+        listView.setAdapter(adapter);
+
+
+        listView.setOnIteamClickListenear(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView,View view, int i, long 1 ){
+                if (mediaPlayer != null){
+                    mediaPlayer.release();
+                }
+                int resID = getResources().getIdentifier(list.get(i), "raw", getPackageName());
+                MediaPlayer =MediaPlayer.create(MainActivity.this, resID);
+                MediaPlayer.start();
+
+            });
+
+            }
+
+    }
